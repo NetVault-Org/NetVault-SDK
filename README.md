@@ -90,11 +90,11 @@ var secret = await client.GetSecretValueAsync<string>("my_scoped_secret", ownerI
 ## Error handling
 `GetSecretValueAsync` maps NetVault error responses into custom exceptions:
 
-- NvCredentialException (HTTP 403): Invalid credentials (client secret does not work)
-- NvForbidException (HTTP 401): Unauthorized (no access to the secret)
-- NvKeyException (HTTP 404): Secret not found
-- NvUnhandledException (other errors): Unexpected error category from NetVault
-- NvEnvironmentMissingException: Thrown on startup when a required environment variable is missing
+- NvCredentialException (HTTP 403): Invalid credentials (client secret does not work).
+- NvForbidException (HTTP 401): Unauthorized (no access to the secret).
+- NvKeyException (HTTP 404): Secret not found.
+- NvUnhandledException (other errors): Unexpected error category from NetVault.
+- NvEnvironmentMissingException: Thrown on startup when a required environment variable is missing.
 
 Example:
 ```

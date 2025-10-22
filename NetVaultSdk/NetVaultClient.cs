@@ -117,9 +117,10 @@ namespace NetVaultSdk
             {
                 ClientId = _clientId,
                 ClientSecret = _clientSecret,
-                SecretName = secretName,
-                OwnerId = ownerId.ToString()
+                SecretName = secretName
             };
+            if(ownerId.HasValue)
+                request.OwnerId = ownerId.Value.ToString();
             var content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
             var result = await _httpClient.PostAsync($"{_baseUrl}/api/v1/secrets/recovery", content);
             result.EnsureSuccessStatusCode();
